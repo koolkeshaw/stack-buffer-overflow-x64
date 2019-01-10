@@ -1,0 +1,51 @@
+Below interesting strings are present
+
+Welcome to rot13 as a Service!
+Your one stop shop for the best encryption the world has to offer.
+%d tokens remaining.
+
+*** glibc detected *** %s: %s: 0x%s ***
+%s%s%s:%u: %s%sAssertion `%s' failed.
+*** %s ***: %s terminated
+buffer overflow detected   :- "MY ULIIMATE GOAL"
+ld.so-1.7.0
+glibc-ld.so.cache1.1
+GCC: (Debian 4.7.2-5) 4.7.2
+
+
+The exe opened a port on 2888
+
+Stack is executable.
+
+
+Seg-fault if input is 751 bytes long
+
+RBP & RSP both have values which are calculated from user input.
+
+
+Function 0x41a8f0 & 0x419610 are plausible candidates for seg fault. 
+0x41a8f5 & 0x41a910 are two places where syscall() is happening
+
+0x41a680 -> at location binary waits for network-based input.
+
+0x41a840 -> "Welcome to rot13..." msg is sent to client
+
+0x42dd96 -> last check, I examined till here.
+
+
+input:- any string. 
+output:- encode input with Caesar cipher using shift of 13 places. Only English alphabets are affected by Casear Cipher.
+
+
+Below address is using unitilaized values for jmp statements. hence, they can be exploited. Also, they do not change on multiple executions
+
+0x1FFF0001D7:0x4003C8:0x4004F0:0x4006E0:0x4008E0:0x4009C2:0x400A5C:0x400AE2:0x400E18:0x40119C:0x408972:0x40D023:0x41990C:0x41AA53:0x41B48C:0x41BCB2:0x453D3A:0x45702D:
+
+Out of above, only below address have instructions
+0x4006E0, 0x40119C,0x41AA53,0x453D3A
+
+These addresses have jmp rsp. 
+0x467b0b,0x4865ff,0x486807,0x4865ff,0x4A056f,0x4Aa4fb
+
+After exploit rsp points to 25th position of my payload and rbp points to 17th position of my payload.
+There are no bad characters
