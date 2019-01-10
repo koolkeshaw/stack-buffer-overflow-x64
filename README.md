@@ -1,2 +1,2 @@
 # stack-buffer-overflow-x64
-Files I created while exploiting buffer overflow in a 64bit linux binary
+I came across a binary 'reverse' as a part of an open challenge. This repository has all files which I wrote to exploit buffer-overflow vulnerabiltiy in this binary. 
